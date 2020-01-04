@@ -7,20 +7,20 @@ import { BrowserRouter } from 'react-router-dom'
 import 'font-awesome/css/font-awesome.css'
 import { Provider } from 'react-redux';
 import generateStore from './components/redux/store'
-import {ApolloClient} from 'apollo-boost';
-import {ApolloProvider} from 'react-apollo';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
 
 let store = generateStore();
 
 let client = new ApolloClient({
-  url: "https://rickandmortyapi.com/graphql"
+  uri: "https://rickandmortyapi.com/graphql"
 })
 
 let WithRouter = () => <BrowserRouter><App /></BrowserRouter>
 let WithStore = () => <Provider store={store}><WithRouter /></Provider>
-let WithApollo = () => <ApolloProvider client={client}> <WithStore /></ApolloProvider>
+let WithApollo = () => <ApolloProvider client={client} ><WithStore /></ApolloProvider>
 
-ReactDOM.render(<WithStore />, document.getElementById('root'));
+ReactDOM.render(<WithApollo />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
