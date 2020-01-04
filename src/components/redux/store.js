@@ -1,6 +1,6 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import userReducer, { restoreSessionAction } from './userDuck';
-import charsReducer, { getCharactersAction } from './charsDuck';
+import charsReducer, { getCharactersAction, getFavoritesFromLocalStorage } from './charsDuck';
 import thunk from 'redux-thunk';
 
 let rootReducer = combineReducers({
@@ -17,5 +17,6 @@ export default function generateStore() {
   )
   getCharactersAction()(store.dispatch, store.getState)
   restoreSessionAction()(store.dispatch)
+  getFavoritesFromLocalStorage()(store.dispatch)
   return store;
 }

@@ -16,10 +16,13 @@ const ADD_FAVORITES = "ADD_FAVORITES"
 const GET_FAVS = "GET_FAVS"
 const GET_FAVS_SUCCESS = "GET_FAVS_SUCCESS"
 const GET_FAVS_ERROR = "GET_FAVS_ERROR"
+const GET_FAVORITES_LOCAL = "GET_FAVORITES_LOCAL"
 
 // Reducer
 export default function reducer(state= INITIALDATA, action) {
   switch(action.type) {
+    case GET_FAVORITES_LOCAL:
+      return { ...state, fetching: false, favorites: action.payload}
     case GET_FAVS:
       return { ...state, fetching: true}
     case GET_FAVS_ERROR:
@@ -62,12 +65,28 @@ export let retrieveFavs = () => (dispatch, getState) => {
     })
 }
 
+function saveFavorites(favorites){
+  localStorage.favorites = JSON.stringify(favorites);
+}
+//ACTION CREATORS
+
+export let getFavoritesFromLocalStorage = () => (dispatch, getState) =>{
+  let favorites = localStorage.getItem('favorites')
+  favorites = JSON.parse(favorites);
+  if(favorites) {
+    dispatch({
+      type: GET_FAVORITES_LOCAL,
+      payload: favorites
+    })
+  }
+}
 export let addToFavoritesAction = () => (dispatch, getState) => {
   let { array, favorites } = getState().characters
   let {uid} = getState().user
   let char = array.shift();
   favorites.push(char);
   updateDB(favorites, uid);
+  saveFavorites(favorites);
   dispatch({
     type: ADD_FAVORITES,
     payload: { array: [...array], favorites:[...favorites] }
