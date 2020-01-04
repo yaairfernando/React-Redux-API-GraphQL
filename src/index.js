@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom'
 import 'font-awesome/css/font-awesome.css'
 import { Provider } from 'react-redux';
-import generateStore from './redux/store'
+import generateStore from './components/redux/store'
 
 let store = generateStore();
 
