@@ -1,11 +1,15 @@
 import React from 'react'
 import styles from './login.module.css'
 import { connect } from 'react-redux';
-import { doGoogleLoginAction } from '../redux/userDuck';
+import { doGoogleLoginAction, signOutAction } from '../redux/userDuck';
 
-function LoginPage({ loggedIn, fetching, doGoogleLoginAction }) {
+function LoginPage({ loggedIn, fetching, doGoogleLoginAction, signOutAction }) {
     function googleLogin(){
       doGoogleLoginAction();
+    }
+
+    function signOut(){
+      signOutAction();
     }
 
     if(fetching) return <h2>Loading...</h2>
@@ -13,10 +17,9 @@ function LoginPage({ loggedIn, fetching, doGoogleLoginAction }) {
         <div className={styles.container}>
             {loggedIn ? <h1>Sign Out</h1> : <h1>Sign In</h1>}
             {loggedIn ?
-              <button>Sign Out</button> :
+              <button onClick={signOut}>Sign Out</button> :
               <button onClick={googleLogin}>Log In</button>
             }
-           
         </div>
     )
 }
@@ -28,4 +31,4 @@ function matStateToProps({user:{ fetching, loggedIn }}){
   }
 }
 
-export default connect(matStateToProps, { doGoogleLoginAction })(LoginPage);
+export default connect(matStateToProps, { doGoogleLoginAction, signOutAction })(LoginPage);
