@@ -6,13 +6,15 @@ const INITIALDATA = {
   fetching: false,
   array: [],
   current: {},
-  favorites: []
+  favorites: [],
+  nextPage: 1
 }
 const URL = "https://rickandmortyapi.com/api/character"
 
 let client = new ApolloClient({
   uri: "https://rickandmortyapi.com/graphql"
 })
+const UPDATE_PAGE = "UPDATE_PAGE"
 const GET_CHARACTERS = "GET_CHARACTERS"
 const GET_CHARACTERS_SUCCESS = "GET_CHARACTERS_SUCCESS"
 const GET_CHARACTERS_ERROR = "GET_CHARACTERS_ERROR"
@@ -26,6 +28,8 @@ const GET_FAVORITES_LOCAL = "GET_FAVORITES_LOCAL"
 // Reducer
 export default function reducer(state= INITIALDATA, action) {
   switch(action.type) {
+    case UPDATE_PAGE:
+      return { ...state, nextPage: action.payload }
     case GET_FAVORITES_LOCAL:
       return { ...state, fetching: false, favorites: action.payload}
     case GET_FAVS:
@@ -101,6 +105,10 @@ export let addToFavoritesAction = () => (dispatch, getState) => {
 export let removeCharacterAction = () => (dispatch, getState) => {
   let {array} = getState().characters;
   array.shift()
+  if(!array.length){
+    getCharactersAction()(dispatch, getState);
+    return
+  }
   dispatch({
     type: REMOVE_CHARACTER,
     payload: [...array]
@@ -109,20 +117,27 @@ export let removeCharacterAction = () => (dispatch, getState) => {
 
 export let getCharactersAction = ()=> (dispatch, getState) => {
   let query = gql`
-    {
-      characters{
-        results{
-          name,
-          image
-        }
+  query ($page:Int){
+    characters(page:$page){
+      info{
+        pages
+        next
+        prev
+      }
+      results{
+        name
+        image
       }
     }
+  }
   `
   dispatch({
     type: GET_CHARACTERS
   })
+  let {nextPage} = getState().characters
   return client.query({
-    query
+    query,
+    variables:{page: nextPage}
   })
   .then(({data, error}) => {
     if (error) {
@@ -135,6 +150,10 @@ export let getCharactersAction = ()=> (dispatch, getState) => {
     dispatch({
       type: GET_CHARACTERS_SUCCESS,
       payload: data.characters.results
+    })
+    dispatch({
+      type: UPDATE_PAGE,
+      payload: data.characters.info.next ? data.characters.info.next : 1
     })
   })
 
