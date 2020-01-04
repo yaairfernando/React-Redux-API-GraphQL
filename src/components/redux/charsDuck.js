@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { updateDB, getFavs } from '../../firebase'
+import ApolloClient, {gql} from 'apollo-boost';
 // Constanst
 const INITIALDATA = {
   fetching: false,
@@ -8,6 +9,10 @@ const INITIALDATA = {
   favorites: []
 }
 const URL = "https://rickandmortyapi.com/api/character"
+
+let client = new ApolloClient({
+  uri: "https://rickandmortyapi.com/graphql"
+})
 const GET_CHARACTERS = "GET_CHARACTERS"
 const GET_CHARACTERS_SUCCESS = "GET_CHARACTERS_SUCCESS"
 const GET_CHARACTERS_ERROR = "GET_CHARACTERS_ERROR"
@@ -103,21 +108,49 @@ export let removeCharacterAction = () => (dispatch, getState) => {
 }
 
 export let getCharactersAction = ()=> (dispatch, getState) => {
+  let query = gql`
+    {
+      characters{
+        results{
+          name,
+          image
+        }
+      }
+    }
+  `
   dispatch({
     type: GET_CHARACTERS
   })
-  return axios.get(URL)
-    .then(res => {
-      dispatch({
-        type: GET_CHARACTERS_SUCCESS,
-        payload: res.data.results
-      });
-    })
-    .catch(err => {
-      console.log(err)
+  return client.query({
+    query
+  })
+  .then(({data, error}) => {
+    if (error) {
       dispatch({
         type: GET_CHARACTERS_ERROR,
-        payload: err.response.message
+        payload: error
       })
+      return
+    }
+    dispatch({
+      type: GET_CHARACTERS_SUCCESS,
+      payload: data.characters.results
     })
+  })
+
+
+  // return axios.get(URL)
+  //   .then(res => {
+  //     dispatch({
+  //       type: GET_CHARACTERS_SUCCESS,
+  //       payload: res.data.results
+  //     });
+  //   })
+  //   .catch(err => {
+  //     console.log(err)
+  //     dispatch({
+  //       type: GET_CHARACTERS_ERROR,
+  //       payload: err.response.message
+  //     })
+  //   })
 };
