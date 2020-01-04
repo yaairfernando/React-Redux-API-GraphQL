@@ -1,21 +1,34 @@
 import React from 'react'
 import styles from './login.module.css'
+import { connect } from 'react-redux';
+import { doGoogleLoginAction } from '../redux/userDuck';
 
-export default function LoginPage() {
+function LoginPage({ fetching, doGoogleLoginAction }) {
+    function googleLogin(){
+      doGoogleLoginAction();
+    }
+
+    if(fetching) return <h2>Loading...</h2>
     return (
         <div className={styles.container}>
             <h1>
-                Inicia Sesión con Google
+                Sign In With Google
             </h1>
             <h1>
-                Cierra tu sesión
+                Sign Out
             </h1>
-            <button>
-                Iniciar
+            <button onClick={googleLogin}>
+                Log In
             </button>
             <button>
-                Cerrar Sesión
+                Sign Out
             </button>
         </div>
     )
 }
+
+function matStateToProps({user:{ fetching }}){
+  return { fetching }
+}
+
+export default connect(matStateToProps, { doGoogleLoginAction })(LoginPage);

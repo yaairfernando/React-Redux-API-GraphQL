@@ -12,7 +12,7 @@ const LOGIN_ERROR = "LOGIN_ERROR"
 export default function reducer(state = INITIALDATA, action){
   switch(action.type){
     case LOGIN_SUCCESS:
-      return { ...state, fetching: false, ...action.payload }
+      return { ...state, fetching: false, ...action.payload, loggedIn: true }
     case LOGIN_ERROR:
       return { ...state, fetching: false, error: action.payload }
     case LOGIN:
@@ -36,7 +36,12 @@ export let doGoogleLoginAction = () => (dispatch, getState) => {
     .then(user=> {
       dispatch({
         type: LOGIN_SUCCESS,
-        payload: { ...user }
+        payload: { 
+          uid: user.uid,
+          displayName: user.displayName,
+          email: user.email,
+          photoURL: user.photoURL
+         }
       })
       saveStorage(getState());
     })
