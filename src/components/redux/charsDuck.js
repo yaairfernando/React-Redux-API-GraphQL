@@ -3,16 +3,20 @@ import axios from 'axios';
 const INITIALDATA = {
   fetching: false,
   array: [],
-  current: {}
+  current: {},
+  favorites: []
 }
 const URL = "https://rickandmortyapi.com/api/character"
 const GET_CHARACTERS = "GET_CHARACTERS"
 const GET_CHARACTERS_SUCCESS = "GET_CHARACTERS_SUCCESS"
 const GET_CHARACTERS_ERROR = "GET_CHARACTERS_ERROR"
 const REMOVE_CHARACTER = "REMOVE_CHARACTER"
+const ADD_FAVORITES = "ADD_FAVORITES"
 // Reducer
 export default function reducer(state= INITIALDATA, action) {
   switch(action.type) {
+    case ADD_FAVORITES:
+      return { ...state, ...action.payload }
     case REMOVE_CHARACTER:
       return { ...state, array: action.payload }
     case GET_CHARACTERS:
@@ -26,6 +30,16 @@ export default function reducer(state= INITIALDATA, action) {
   }
 }
 // Action Creator
+export let addToFavoritesAction = () => (dispatch, getState) => {
+  let { array, favorites } = getState().characters
+  let char = array.shift();
+  favorites.push(char);
+  dispatch({
+    type: ADD_FAVORITES,
+    payload: { array: [...array], favorites:[...favorites] }
+  });
+};
+
 export let removeCharacterAction = () => (dispatch, getState) => {
   let {array} = getState().characters;
   array.shift()
