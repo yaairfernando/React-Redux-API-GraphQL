@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import Home from './components/home/HomePage'
 import FavPage from './components/favs/FavPage'
 import LoginPage from './components/login/LoginPage'
+import GraphHome from './components/home/GraphHome'
 
 function PrivateRoute({ path, component, ...rest}){
   let storage = localStorage.getItem('storage')
