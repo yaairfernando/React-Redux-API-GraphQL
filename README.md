@@ -1,68 +1,129 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![LinkedIn][linkedin-shield2]][linkedin-url2]
 
-## Available Scripts
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+ <h2 align="center"> React and redux API</h2>
 
-In the project directory, you can run:
+  <p align="center">
+      In this project We'll put together a request API with the middleware redux-thunk to  make requests in a redux application.
+      We'll also use GraphQL to replace highlight the differences between axios and apollo to make API requests. 
+    <br />
+    <a href="https://github.com/YairFernando67/React-Redux-API-GraphQL"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/YairFernando67/React-Redux-API-GraphQL">View Demo</a>
+    ·
+    <a href="https://github.com/YairFernando67/React-Redux-API-GraphQL/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/YairFernando67/React-Redux-API-GraphQL/issues">Request Feature</a>
+  </p>
 
-### `yarn start`
+</p>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Table of Contents
+* [About the Project](#about-the-project)
+  * [Redux-Thunk](#Redux-Thunk)
+  * [Middleware](#Middleware)
+  * [Redux](#Redux)
+  * [React-Redux](#React-Redux)
+  * [React-Router](#React-Router)
+  * [Built With](#built-with)
+* [Contact](#contact)
+<!-- * [Acknowledgements](#acknowledgements) -->
+<!-- ABOUT THE PROJECT -->
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## About The Project
 
-### `yarn test`
+![Screenshot Image](public/logoRepo.PNG) 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Redux-Thunk 
+Middleware to help us make requests 
+in a redux application. Anytime that we expect to make an API request form an
+actual creator we are always going to make use of redux-thunk. There are other
+options that allow you to make API requests or otherwise async behaviors but
+redux-thunk is the most popular.
 
-### `yarn build`
+### Middleware
+Function that gets called with every action
+we dispatch. Has the hability to stop, modify or
+otherwise mess around with actions. A middleware is for
+dealing with async actions.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Redux
+It is a state managment library, makes creating complex applications
+easier, It is not required to create a react app, it is not
+explicity designed to work with react.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### React-Redux
+This is a third library that help us to let react and redux to comunicate to each other and work together
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### React-Router
+It is a library that allows a user to see different screens inside of 
+our application.
+Every time that we want to use react-router in our application to handle
+navigation, we are always going to install this project called react-router-dom.
 
-### `yarn eject`
+### Built With
+The project was developed using the following technologies:
+- [REACT](https://es.reactjs.org/)
+- [JSX](https://reactjs.org/docs/introducing-jsx.html)
+- [AXIOS](https://github.com/axios/axios)
+- [GRAPHQL](https://graphql.org/)
+- [REDUX-THUNK](https://github.com/reduxjs/redux-thunk)
+- [REACT-REDUX](https://github.com/reduxjs/react-redux)
+- [REACT-ROUTER](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
+- [REACT-APOLLO](https://github.com/apollographql/react-apollo)
+- [APOLLO-CLIENT](https://github.com/apollographql/apollo-client/tree/master/packages/apollo-boost)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Contact
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+👤 **Yair Fernando Facio**
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<a href="https://yairfernando67.github.io/Portfolio/" target="_blank">
+    
+  ![Screenshot Image](public/logo.jpg) 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+</a>
 
-## Learn More
+- Github: [@YairFernando67](https://github.com/YairFernando67)
+- Twitter: [@YairFernando18](https://twitter.com/YairFernando18)
+- Linkedin: [softwaredeveloperyairfacio](https://www.linkedin.com/in/softwaredeveloperyairfacio/)
+- Email: [yair.facio11@gmail.com](https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=yair.facio11@gmail.com)
+- Portfolio: [softwaredeveloper](https://yairfernando67.github.io/Portfolio/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<p align="center">
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  Project Link: [https://github.com/YairFernando67/React-Redux-API-GraphQL](https://github.com/YairFernando67/React-Redux-API-GraphQL)
 
-### Code Splitting
+</p>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## 🤝 Contributing
 
-### Analyzing the Bundle Size
+Contributions, issues and feature requests are welcome!
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Feel free to check the [issues page](https://github.com/YairFernando67/React-Redux-API-GraphQL/issues).
 
-### Making a Progressive Web App
+## Show your support
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Give a ⭐️ if you like this project!
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<!-- MARKDOWN LINKS & IMAGES -->
+[contributors-shield]: https://img.shields.io/github/contributors/YairFernando67/React-Redux-API-GraphQL.svg?style=flat-square
+[contributors-url]: https://github.com/YairFernando67/React-Redux-API-GraphQL/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/YairFernando67/React-Redux-API-GraphQL.svg?style=flat-square
+[forks-url]: https://github.com/YairFernando67/React-Redux-API-GraphQL/network/members
+[stars-shield]: https://img.shields.io/github/stars/YairFernando67/React-Redux-API-GraphQL.svg?style=flat-square
+[stars-url]: https://github.com/YairFernando67/React-Redux-API-GraphQL/stargazers
+[issues-shield]: https://img.shields.io/github/issues/YairFernando67/React-Redux-API-GraphQL.svg?style=flat-square
+[issues-url]: https://github.com/YairFernando67/React-Redux-API-GraphQL/issues
+[license-shield]: https://img.shields.io/github/license/YairFernando67/React-Redux-API-GraphQL.svg?style=flat-square
+[license-url]: https://github.com/YairFernando67/React-Redux-API-GraphQL/blob/master/LICENSE.txt
+[linkedin-shield2]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url2]: https://www.linkedin.com/in/softwaredeveloperyairfacio/
+<!-- [product-screenshot]: img/logo.png
+[product-example]: img/example.png -->
