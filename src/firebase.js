@@ -1,5 +1,6 @@
 import firebase from 'firebase/app'
 import 'firebase/auth'
+import 'firebase/firestore'
 
 let firebaseConfig = {
   apiKey: "AIzaSyD1seFQWGlhU8ouYVWFpQSNSPsUpj5pF28",
@@ -13,6 +14,12 @@ let firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+let db = firebase.firestore().collection('favs')
+
+export function updateDB(array, uid){
+  return db.doc(uid).set({array})
+}
 // firebase.analytics();
 
 export function signOutGoogle(){
