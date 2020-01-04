@@ -10,7 +10,7 @@ function onClick(side) {
 }
 
 export default function Card({
-    name, image, rightClick, leftClick
+    name, image, rightClick, leftClick, hide
 }) {
     return (
         <div className={styles.container}>
@@ -19,6 +19,7 @@ export default function Card({
                 <p className={styles.name}>
                     {name}
                 </p>
+                {!hide &&
                 <div className={styles.actions}>
                     <div
                         onClick={leftClick || onClick("left")}
@@ -37,6 +38,7 @@ export default function Card({
                         />
                     </div>
                 </div>
+                }
             </div>
         </div>
     )
