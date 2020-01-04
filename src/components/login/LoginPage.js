@@ -24,11 +24,11 @@ function LoginPage({ loggedIn, fetching, doGoogleLoginAction, signOutAction }) {
     )
 }
 
-function matStateToProps({user:{ fetching, loggedIn }}){
+function mapStateToProps({user:{ fetching, loggedIn }}){
   return { 
     fetching,
     loggedIn  
   }
 }
 
-export default connect(matStateToProps, { doGoogleLoginAction, signOutAction })(LoginPage);
+export default connect(mapStateToProps, { doGoogleLoginAction, signOutAction })(LoginPage);
