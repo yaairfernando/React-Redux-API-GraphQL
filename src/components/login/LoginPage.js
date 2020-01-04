@@ -3,7 +3,7 @@ import styles from './login.module.css'
 import { connect } from 'react-redux';
 import { doGoogleLoginAction } from '../redux/userDuck';
 
-function LoginPage({ fetching, doGoogleLoginAction }) {
+function LoginPage({ loggedIn, fetching, doGoogleLoginAction }) {
     function googleLogin(){
       doGoogleLoginAction();
     }
@@ -11,24 +11,21 @@ function LoginPage({ fetching, doGoogleLoginAction }) {
     if(fetching) return <h2>Loading...</h2>
     return (
         <div className={styles.container}>
-            <h1>
-                Sign In With Google
-            </h1>
-            <h1>
-                Sign Out
-            </h1>
-            <button onClick={googleLogin}>
-                Log In
-            </button>
-            <button>
-                Sign Out
-            </button>
+            {loggedIn ? <h1>Sign Out</h1> : <h1>Sign In</h1>}
+            {loggedIn ?
+              <button>Sign Out</button> :
+              <button onClick={googleLogin}>Log In</button>
+            }
+           
         </div>
     )
 }
 
-function matStateToProps({user:{ fetching }}){
-  return { fetching }
+function matStateToProps({user:{ fetching, loggedIn }}){
+  return { 
+    fetching,
+    loggedIn  
+  }
 }
 
 export default connect(matStateToProps, { doGoogleLoginAction })(LoginPage);
