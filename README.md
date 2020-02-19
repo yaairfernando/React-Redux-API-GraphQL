@@ -3,6 +3,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![LinkedIn][linkedin-shield2]][linkedin-url2]
+[![Hireable][hireable]][hireable-url]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -33,9 +34,12 @@
   * [React-Redux](#React-Redux)
   * [React-Router](#React-Router)
   * [Built With](#built-with)
+* [Required Installations](#Required-Installations)
+  * [Installing](#Installing)
+  * [Instructions](#Instructions)
 * [Contact](#contact)
-<!-- * [Acknowledgements](#acknowledgements) -->
-<!-- ABOUT THE PROJECT -->
+* [Contributing](#Contributing)
+* [Show your support](#Show-your-support)
 
 ## About The Project
 
@@ -70,15 +74,48 @@ navigation, we are always going to install this project called react-router-dom.
 
 ### Built With
 The project was developed using the following technologies:
-- [REACT](https://es.reactjs.org/)
+- [React](https://es.reactjs.org/)
 - [JSX](https://reactjs.org/docs/introducing-jsx.html)
-- [AXIOS](https://github.com/axios/axios)
-- [GRAPHQL](https://graphql.org/)
-- [REDUX-THUNK](https://github.com/reduxjs/redux-thunk)
-- [REACT-REDUX](https://github.com/reduxjs/react-redux)
-- [REACT-ROUTER](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
-- [REACT-APOLLO](https://github.com/apollographql/react-apollo)
-- [APOLLO-CLIENT](https://github.com/apollographql/apollo-client/tree/master/packages/apollo-boost)
+- [Axios](https://github.com/axios/axios)
+- [GraphQl](https://graphql.org/)
+- [Redux-Thunk](https://github.com/reduxjs/redux-thunk)
+- [React-Redux](https://github.com/reduxjs/react-redux)
+- [React-Router](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
+- [React-Apollo](https://github.com/apollographql/react-apollo)
+- [Apollo-Client](https://github.com/apollographql/apollo-client/tree/master/packages/apollo-boost)
+
+
+## Required Installations
+
+### Installing
+
+<p>Install the following to get this project running in your machine:</p>
+
+### Instructions
+
+<p>Follow these steps:</p>
+
+Clone the Repository
+
+```Shell
+user@pc:~$ git clone https://github.com/YairFernando67/React-Redux-API-GraphQL
+```
+
+Click on the console and to go to the folder that was created
+
+```Shell
+user@pc:~$ cd React-Redux-API-GraphQL
+```
+
+```
+user@pc:~/React-Redux-API-GraphQL$ npm install
+```
+
+```
+user@pc:~/React-Redux-API-GraphQL$ npm start
+```
+
+Open your browser on [http://localhost:3000](http://localhost:3000)
 
 ## Contact
 
@@ -125,5 +162,5 @@ Give a ⭐️ if you like this project!
 [license-url]: https://github.com/YairFernando67/React-Redux-API-GraphQL/blob/master/LICENSE.txt
 [linkedin-shield2]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url2]: https://www.linkedin.com/in/softwaredeveloperyairfacio/
-<!-- [product-screenshot]: img/logo.png
-[product-example]: img/example.png -->
+[hireable]: https://cdn.rawgit.com/hiendv/hireable/master/styles/flat/yes.svg
+[hireable-url]: https://www.linkedin.com/in/softwaredeveloperyairfacio/
